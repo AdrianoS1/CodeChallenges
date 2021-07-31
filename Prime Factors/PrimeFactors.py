@@ -4,33 +4,30 @@ from math import sqrt, floor
 import re
 
 def calc_primes(user_input):
-    if user_input == 2:
-        return 2
-    elif user_input == 3:
-        return 3
-    else:
-        prime_limit = floor(sqrt(user_input))
+    #Generate a list of possible prime number candidates
+    prime_candidates = [2] + list(range(3, user_input+1, 2))
 
-        prime_candidates = [2] + list(range(3, user_input+1, 2))
-        print(prime_candidates)
-        prime_list = []
+    prime_list = []
 
-        while user_input > 1:
-            for candidate in prime_candidates:
-                if user_input % candidate == 0:
-                    prime_list.append(candidate)
-                    user_input = user_input / candidate
-                    break
-        
-        sum_primes = 0
-        for prime in prime_list:
-            sum_primes += prime
-        
-        return sum_primes
+    while user_input > 1:
+        for candidate in prime_candidates:
+            #Check each prime number candidate to see if it cleanly divides a number to an integer value
+            if user_input % candidate == 0:
+                prime_list.append(candidate)
+                user_input = user_input / candidate
+                break
+    
+    #Sum up the prime candidates that have been isolated and return them
+    sum_primes = 0
+    for prime in prime_list:
+        sum_primes += prime
+    
+    return sum_primes
 
 def main():
     print("This program will take a number that you input and find the sum of all prime factors of that number")
 
+    #Check for number input
     regex_match = re.compile('([1-9]{1}[0-9]*)')
 
     user_input = input("Enter a positive integer: ")
