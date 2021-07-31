@@ -1,0 +1,6 @@
+Challenge referenced from the following URL: https://discuss.codecademy.com/t/challenge-sum-of-prime-factors/81035
+The challenge is as follows:
+
+Write a function that finds the sum of all prime factors 1.6k of a given number, n.
+
+Try to write your function without using trial division 1.1k!
