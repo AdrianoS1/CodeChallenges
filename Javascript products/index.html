@@ -1,0 +1,17 @@
+<body onload="addIntegers()">
+</body>
+
+<script type="text/javascript">
+    // Main function to find the 3 highest integers and calculate their product.
+    function addIntegers() {
+        const listOfIntegers = [3, 4, 5, 7, 8, 14, 23, 1, 1, 1];
+
+        // Sort list and take the 3 highest numbers for the product calculation
+        listOfIntegers.sort(function(a, b){return b - a});
+
+        const threeHighest = listOfIntegers.slice(0,3);
+        const finalProduct = threeHighest[0] * threeHighest[1] * threeHighest[2];
+    
+        console.log(finalProduct);
+    }
+</script>
